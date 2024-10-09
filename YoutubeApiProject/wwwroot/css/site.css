@@ -1,0 +1,30 @@
+body {
+    background-color: #ff0000; /* Light gray background */
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+.card {
+    transition: transform 0.4s; /* Add a hover effect */
+}
+
+    .card:hover {
+        transform: scale(1.05); /* Slightly increase size on hover */
+    }
+
+.btn-primary {
+    background-color: #2a2727; /* Change this to your desired color */
+    color: white; /* Change text color */
+    border: black; /* Remove border if desired */
+}
+
+    .custom-btn:hover {
+        background-color: #218838; /* Darker shade for hover effect */
+    }
+
+.custom-navbar {
+    background-color: #2f2c2c; /* Set your desired color */
+    color: white; /* Text color */
+}

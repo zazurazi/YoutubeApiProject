@@ -1,0 +1,15 @@
+﻿@page
+@{
+    ViewData["Title"] = "Search Music";
+}
+
+<div class="text-center">
+    <h2>Search for Music Videos</h2>
+    <form method="post" asp-action="Search">
+        <div class="form-group">
+            <label for="searchQuery">Search Query</label>
+            <input type="text" id="searchQuery" name="query" class="form-control" placeholder="Enter video title or keywords" />
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>

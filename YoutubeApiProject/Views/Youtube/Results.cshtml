@@ -1,0 +1,42 @@
+﻿@model List<YouTubeApiProject.Models.YouTubeVideoModel>
+
+<h2>Search Results for "@ViewBag.Query"</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <div class="row">
+        @foreach (var video in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="@video.ThumbnailUrl" alt="@video.Title" />
+                    <div class="card-body">
+                        <h5 class="card-title">@video.Title</h5>
+                        <p class="card-text">@video.Description</p>
+                        <a href="https://www.youtube.com/watch?v=@video.VideoId" class="btn btn-primary" target="_blank">Watch on YouTube</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (!string.IsNullOrEmpty(ViewBag.NextPageToken))
+    {
+        <form method="post" asp-controller="YouTube" asp-action="Search">
+            <input type="hidden" name="query" value="@ViewBag.Query" />
+            <input type="hidden" name="pageToken" value="@ViewBag.NextPageToken" />
+            <button type="submit" class="btn btn-secondary">Next Page</button>
+        </form>
+    }
+}
+else
+{
+    <p>No results found for your search.</p>
+}
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
